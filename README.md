@@ -4,6 +4,8 @@
 
 An [MCP server](https://modelcontextprotocol.io/introduction) for [Apache Doris](https://doris.apache.org/).
 
+![Demo](mcp-doris-demo.gif)
+
 ## Usage
 
 ### Cursor
