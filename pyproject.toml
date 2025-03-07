@@ -1,0 +1,37 @@
+[project]
+name = "mcp-doris"
+version = "0.1.0"
+description = "An MCP server for Apache Doris."
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.13"
+dependencies = [
+     "mcp[cli]>=1.3.0",
+     "python-dotenv>=1.0.1",
+     "uvicorn>=0.34.0",
+     "pip-system-certs>=4.0",
+     "mysql-connector-python>=9.2.0",
+]
+
+[project.scripts]
+mcp-doris = "mcp_doris.main:main"
+
+[project.urls]
+Home = "https://github.com/morningman/mcp-doris"
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["mcp_doris"]
+
+[tool.ruff]
+line-length = 100
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
