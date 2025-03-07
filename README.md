@@ -1,4 +1,6 @@
-# mcp-doris
+# Apache Doris MCP Server
+
+[![smithery badge](https://smithery.ai/badge/@morningman/mcp-doris)](https://smithery.ai/server/@morningman/mcp-doris)
 
 An [MCP server](https://modelcontextprotocol.io/introduction) for [Apache Doris](https://doris.apache.org/).
 
