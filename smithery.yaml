@@ -1,0 +1,43 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - dorisHost
+      - dorisPort
+      - dorisUser
+      - dorisPassword
+    properties:
+      dorisHost:
+        type: string
+        description: Host address for Apache Doris.
+      dorisPort:
+        type: string
+        description: Port for Apache Doris.
+      dorisUser:
+        type: string
+        description: Username to connect to Apache Doris.
+      dorisPassword:
+        type: string
+        description: Password for connecting to Apache Doris.
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({
+      command: 'uv',
+      args: ['run', '--with', 'mcp-doris', '--python', '3.13', 'mcp-doris'],
+      env: {
+        DORIS_HOST: config.dorisHost,
+        DORIS_PORT: config.dorisPort,
+        DORIS_USER: config.dorisUser,
+        DORIS_PASSWORD: config.dorisPassword,
+      }
+    })
+  exampleConfig:
+    dorisHost: localhost
+    dorisPort: "9030"
+    dorisUser: admin
+    dorisPassword: password
