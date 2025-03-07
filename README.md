@@ -2,6 +2,16 @@
 
 An [MCP server](https://modelcontextprotocol.io/introduction) for [Apache Doris](https://doris.apache.org/).
 
+## Usage
+
+### Cursor
+
+```
+Name: doris
+Type: command
+Command: DORIS_HOST=<doris-host> DORIS_PORT=<port> DORIS_USER=<doris-user> DORIS_PASSWORD=<doris-pwd> uv run --with mcp-doris --python 3.13 mcp-doris
+```
+
 ## Development
 
 ### Prerequest
@@ -20,3 +30,9 @@ env DORIS_HOST=<doris-host> DORIS_PORT=<port> DORIS_USER=<doris-user> DORIS_PASS
 
 Then visit `http://localhost:5173` in web browser.
 
+## Publish
+
+```
+uv build
+uv publish
+```
